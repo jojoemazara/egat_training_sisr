@@ -12,8 +12,10 @@ sap.ui.define([
             C_ENTITY_FILE: "/UserFileSet",
 
             C_MODEL_NAME_FILE: "fileList",
-            C_MODEL_NAME_UPLOAD_RESULT: "uploadResult",
 
+            C_MODEL_NAME_UPLOAD_RESULT: "uploadResult",
+            
+            // first initial of controller
             onInit: function () {
                 this.initModel();
 
