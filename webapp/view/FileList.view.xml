@@ -1,0 +1,33 @@
+<mvc:View controllerName="com.egat.training.zuserinfosisri.controller.FileList"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+
+    <Page showNavButton="true" navButtonPress="onNavBack">
+
+        <content>
+            <UploadCollection id="UploadCollection" maximumFileSize="10" multiple="true" items="{fileList>/}"
+             sameFilenameAllowed="false" instantUpload="false"
+             noDataDescription="Drop files or use the 'Add' button to keep files ready for upload" 
+             change="onChange"
+             filenameLengthExceed="onFilenameLengthExceed" 
+             fileSizeExceed="onFileSizeExceed" 
+             typeMissmatch="onTypeMissmatch" 
+             uploadComplete="onUploadComplete"
+             uploadTerminated="onUploadTerminate"
+             beforeUploadStarts="onBeforeUploadStarts"
+             uploadUrl="/sap/opu/odata/sap/ZUSERINFO00_SRV/UserFileSet">
+                <items>
+                    <UploadCollectionItem fileName="{fileList>Filename}" url="{fileList>url}" mimeType="{fileList>Mimetype}" deletePress="onFileDelete"></UploadCollectionItem>
+                </items>
+            </UploadCollection>
+        </content>
+
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer></ToolbarSpacer>
+                <Button text="Upload" press="onStartUpload" type="Emphasized" icon="sap-icon://upload"></Button>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+
+</mvc:View>

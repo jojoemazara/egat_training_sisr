@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog title="Upload Results">
+        <content>
+            <Table items="{uploadResult>/}" width="400px">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="Upload Items ({uploadResult>/length})" level="H2"/>
+                            <ToolbarSpacer />
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column hAlign="Center">
+                        <Text text="File Name" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="Status" />
+                    </Column >
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="{uploadResult>fileName}" />
+                            <core:Icon src="{= ${uploadResult>uploadComplete} ? 'sap-icon://accept' : 'sap-icon://decline'  }" color="{= ${uploadResult>uploadComplete} ? '#87FF00' : '#FF0000'}" ></core:Icon>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <buttons>
+            <Button text="Close" press="onCloseResultDialog"></Button>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

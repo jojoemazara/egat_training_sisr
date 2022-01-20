@@ -1,0 +1,65 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog title="{i18n>create}">
+        <content>
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                <f:content>
+
+                    <Label text="{i18n>userId}"></Label>
+                    <Input value="{dialog>/Userid}" editable="false">
+                    </Input>
+
+
+                    <Label text="{i18n>firstName}"></Label>
+                    <Input value="{dialog>/Firstname}">
+                    </Input>
+                    <Label text="{i18n>lastName}"></Label>
+                    <Input value="{dialog>/Lastname}">
+                    </Input>
+                    <Label text="{i18n>email}"></Label>
+                    <Input value="{dialog>/Email}" >
+                    </Input>
+                    <Label text="{i18n>phone}"></Label>
+                    <Input value="{dialog>/Phone}">
+                    </Input>
+                    <Label text="{i18n>country}"></Label>
+                    <Input value="{dialog>/Country}">
+                    </Input>
+                </f:content>
+            </f:SimpleForm>
+
+            <Table items="{dialog>/ToUserAuth/results}" width="300px">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="User Auth Items ({dialog>/ToUserAuth/results/length})" level="H2"/>
+                            <ToolbarSpacer />
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column hAlign="Center">
+                        <Text text="Tcode" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="Tcode Text" />
+                    </Column >
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="{dialog>Tcode}" />
+                            <Text text="{dialog>TcodeText}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <buttons>
+            <Button text="{i18n>cancel}" press="onUpdateDialogCancel"></Button>
+            <Button text="{i18n>update}" press="onUpdateDialogConfirm" type="Emphasized"></Button>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

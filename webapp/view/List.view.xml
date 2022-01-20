@@ -1,0 +1,132 @@
+<mvc:View xmlns:layout="sap.ui.layout" controllerName="com.egat.training.zuserinfosisri.controller.List"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:u="sap.ui.unified">
+
+    <Page title="{i18n>userList}">
+        <content>
+
+            <fb:FilterBar search="onSearch" showRestoreButton="false">
+                <fb:filterGroupItems>
+                    <fb:FilterGroupItem groupName="default" name="userId" label="{i18n>userId}" visibleInFilterBar="true">
+                        <fb:control>
+                            <Input value="{filter>/Userid}"></Input>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem groupName="default" name="firstName" label="{i18n>firstName}" visibleInFilterBar="true">
+                        <fb:control>
+                            <Input value="{filter>/Firstname}"></Input>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem groupName="default" name="lastName" label="{i18n>lastName}" visibleInFilterBar="true">
+                        <fb:control>
+                            <Input value="{filter>/Lastname}"></Input>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+
+                </fb:filterGroupItems>
+            </fb:FilterBar>
+
+            <!-- <Table items="{/UserSet}" growing="true" growingThreshold="5">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="{i18n>userList} ({data>/length})" level="H2"/>
+                            <ToolbarSpacer />
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>userId}" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>firstName}" />
+                    </Column >
+                    <Column hAlign="Center">
+                        <Text text="{i18n>lastName}" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>email}" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>phone}" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>country}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle" type="Active" press="onItemPress">
+                        <cells>
+                            <Text text="{Userid}" />
+                            <Text text="{Firstname}" />
+                            <Text text="{Lastname}" />
+                            <Text text="{Email}" />
+                            <Text text="{Phone}" />
+                            <Text text="{Country}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table> -->
+
+            <Table mode="Delete" items="{data>/}" delete="onItemDelete">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="{i18n>userList} ({data>/length})" level="H2"/>
+                            <ToolbarSpacer />
+                            <Button text="File List" press="goToFileList" type="Default" icon="sap-icon://attachment-zip-file"></Button>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>userId}" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>firstName}" />
+                    </Column >
+                    <Column hAlign="Center">
+                        <Text text="{i18n>lastName}" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>email}" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>phone}" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>country}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle" type="Active" press="onItemPress">
+                        <cells>
+                            <Text text="{data>Userid}" />
+                            <Text text="{data>Firstname}" />
+                            <Text text="{data>Lastname}" />
+                            <Text text="{data>Email}" />
+                            <Text text="{data>Phone}" />
+                            <Text text="{data>Country}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+        </content>
+
+        <footer>
+            <OverflowToolbar >
+                <content>
+                    <ToolbarSpacer ></ToolbarSpacer>
+                    <Button text="{i18n>create}" icon="sap-icon://create" type="Emphasized" press="onCreate"></Button>
+                </content>
+            </OverflowToolbar>
+        </footer>
+
+
+    </Page>
+
+</mvc:View>
